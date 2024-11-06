@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: config-pod
+  name: configpod
 spec:
   containers:
-    - name: config_container
+    - name: configcontainer
       image: nginx
       ports: 
         - containerPort: 80 
