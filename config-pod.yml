@@ -19,3 +19,24 @@ spec:
           configMapKeyRef: 
             name: devops-config
             key: trainer
+
+
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configpod1
+spec:
+  containers:
+    - name: configcontainer1
+      image: nginx
+      ports: 
+        - containerPort: 80 
+      envFrom:
+      - configMapRef:
+          name: devops-config
+      
+
+
