@@ -1,0 +1,26 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: nginx-dpmnt
+  labels:
+    app: nginx
+    tier: webserver_dpmnt
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+      tier: webserver_dpmnt
+
+  template: #it's the pod definition section 
+    metadata:
+      labels:
+        app: nginx
+        tier: webserver_dpmnt
+    spec:
+      containers: 
+      - name: nginx
+        image: nginx
+
+
