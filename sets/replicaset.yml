@@ -1,0 +1,26 @@
+apiVersion: apps/v1 
+kind: Replicaset
+metadata:
+  name: nginx-rs 
+  labels:
+    app: nginx
+    tier: webserver
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+      tier: webserver
+
+  template: #it's the pod definition section 
+    metadata:
+      labels:
+        app: nginx
+        tier: webserver
+    spec:
+      containers: 
+      - name: nginx
+        image: nginx
+
+
